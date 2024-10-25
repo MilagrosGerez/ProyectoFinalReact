@@ -10,7 +10,7 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         const db = getFirestore();
-        const itemRef = doc(db, 'items', id);
+        const itemRef = doc(db, 'item', id);
 
         getDoc(itemRef).then((snapshot) => {
             if (snapshot.exists()) {

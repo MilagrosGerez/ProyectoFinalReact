@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { CartContext } from '../contexts/CartContex';
+import ItemCount from './ItemCount/ItemCount';
 
 const ItemDetail = ({ item }) => {
+    const { addItem } = useContext(CartContext);
     const [quantity, setQuantity] = useState(1);
 
     const handleAddToCart = () => {
-        // Lógica para agregar el producto al carrito con la cantidad seleccionada
-        console.log(`Producto añadido: ${item.name}, Cantidad: ${quantity}`);
+        addItem(item, quantity);
     };
 
     return (
@@ -14,18 +16,8 @@ const ItemDetail = ({ item }) => {
             <h2>{item.title}</h2>
             <p>Precio: ${item.price}</p>
             <p>{item.description}</p>
-            <div>
-                <label>Cantidad:</label>
-                <input 
-                    type="number" 
-                    value={quantity} 
-                    min="1" 
-                    onChange={(e) => setQuantity(Number(e.target.value))} 
-                />
-            </div>
-            <button onClick={handleAddToCart} className="add-to-cart-button">
-                Añadir al Carrito
-            </button>
+            <ItemCount stock={item.stock} initial={1} onAdd={setQuantity} />
+            <button onClick={handleAddToCart}>Añadir al Carrito</button>
         </div>
     );
 };

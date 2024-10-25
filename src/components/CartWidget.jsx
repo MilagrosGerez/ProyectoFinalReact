@@ -19,7 +19,7 @@ const CartWidget = () => {
            <h2>Carrito de compras</h2>
            {cart.map((item) => (
                <div key={item.id}>
-                   <p>{item.name} - {item.quantity} unidades</p>
+                   <p>{item.title} - {item.quantity} unidades</p>
                </div>
            ))}
            <h3>Total: ${totalPrice()}</h3>
