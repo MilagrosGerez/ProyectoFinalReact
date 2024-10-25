@@ -11,17 +11,17 @@ function NavBar (){
    <nav>
     <ul>
     <li>
-      <NavLink to="/">Jazmín Aromas</NavLink>
+      <NavLink  to="/">Jazmín Aromas</NavLink>
     </li>
    
     <li>
-      <NavLink to={"/products"}><button>Productos</button></NavLink>
+      <NavLink to={"/category/DeAutos"}><button>Difusores para autos</button></NavLink>
     </li>
     <li>
-      <NavLink to={"category/Florales"}><button>Aromas Florales</button></NavLink>
+      <NavLink to={"/category/Florales"}><button>Aromas Florales</button></NavLink>
     </li>
     <li>
-      <NavLink to={"category/Dulce"}><button>Aromas Dulces</button></NavLink>
+      <NavLink to={"/category/Dulce"}><button>Aromas Dulces</button></NavLink>
     </li>
    </ul>
     </nav>

@@ -32,7 +32,7 @@ const db = getFirestore(app);
 
 //obtener productos
 export async function getSingleProduct(id) {
-    const documentRef = doc(db, 'products', id);
+    const documentRef = doc(db, 'item', id);
   
     try {
       const snapshot = await getDoc(documentRef);
@@ -52,7 +52,7 @@ export async function getSingleProduct(id) {
   //obtener toda una coleccion
   export async function getProducts() {
     try {
-      const querySnapshot = await getDocs(collection(db, 'products'));
+      const querySnapshot = await getDocs(collection(db, 'item'));
       if (querySnapshot.size !== 0) {
         const productsList = querySnapshot.docs.map((docu) => {
           return {
@@ -108,7 +108,7 @@ export async function getSingleProduct(id) {
   
   //actualizacion de un producto
   export async function updateProduct(id, toUpdate) {
-    const itemRef = doc(db, 'products', id);
+    const itemRef = doc(db, 'item', id);
     try {
       await updateDoc(itemRef, toUpdate);
     } catch (error) {

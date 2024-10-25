@@ -28,9 +28,9 @@ const Checkout = () => {
 
    return (
        <form onSubmit={handleSubmit}>
-           <input type="text" placeholder="Nombre" onChange={(e) => setBuyer({ ...buyer, name: e.target.value })} />
-           <input type="email" placeholder="Email" onChange={(e) => setBuyer({ ...buyer, email: e.target.value })} />
-           <input type="phone" placeholder="Teléfono" onChange={(e) => setBuyer({ ...buyer, phone: e.target.value })} />
+           <input type="text" className='form-control' placeholder="Nombre" onChange={(e) => setBuyer({ ...buyer, name: e.target.value })} />
+           <input type="email" className='form-control' placeholder="Email" onChange={(e) => setBuyer({ ...buyer, email: e.target.value })} />
+           <input type="phone" className='form-control' placeholder="Teléfono" onChange={(e) => setBuyer({ ...buyer, phone: e.target.value })} />
            <button type="submit">Finalizar Compra</button>
        </form>
    );

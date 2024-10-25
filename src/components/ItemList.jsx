@@ -1,9 +1,9 @@
 import Item from "./Item";
-const ItemList = ({ items = [] }) => {
+const ItemList = ({ item = [] }) => {
     return (
         <div>
-            {items.length > 0 ? (
-                items.map((item) => <Item key={item.id} item={item} />)
+            {item.length > 0 ? (
+                item.map((item) => <Item key={item.id} item={item} />)
             ) : (
                 <p>No hay productos disponibles</p>
             )}

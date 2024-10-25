@@ -11,13 +11,13 @@ const ItemDetail = ({ item }) => {
     };
 
     return (
-        <div className="item-detail">
-            <img src={item.img} alt={item.title} className="item-detail-image" />
+        <div className="item-card">
+            <img src={item.img} alt={item.title} className="item-img" />
             <h2>{item.title}</h2>
             <p>Precio: ${item.price}</p>
             <p>{item.description}</p>
             <ItemCount stock={item.stock} initial={1} onAdd={setQuantity} />
-            <button onClick={handleAddToCart}>Añadir al Carrito</button>
+            
         </div>
     );
 };
