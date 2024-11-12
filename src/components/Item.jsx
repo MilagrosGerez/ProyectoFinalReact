@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useCart } from "../contexts/CartContext";
+
 
 const Item = ({ item }) => {
-    const { addItem } = useCart();
+    console.log("Datos del item:", item);
     return (
         <div className="item-card">
             <img src={item.img} alt={item.title} className="item-img" />
