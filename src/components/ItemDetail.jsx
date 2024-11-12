@@ -2,24 +2,31 @@ import React, { useState, useContext } from 'react';
 import { CartContext } from '../contexts/CartContex';
 import ItemCount from './ItemCount/ItemCount';
 
+
 const ItemDetail = ({ item }) => {
-    const { addItem } = useContext(CartContext);
-    const [quantity, setQuantity] = useState(1);
+    const { addItem } = useContext(CartContext); // Obtener la función addItem del contexto
+    const [quantity, setQuantity] = useState(1); // Estado para manejar la cantidad seleccionada
+ const [addedToCart, setAddedToCart] = useState(false);
 
     const handleAddToCart = () => {
-        addItem(item, quantity);
+        addItem(item, quantity); 
+        setAddedToCart(true);
     };
 
     return (
-        <div className="item-card">
-            <img src={item.img} alt={item.title} className="item-img" />
-            <h2>{item.title}</h2>
-            <p>Precio: ${item.price}</p>
+        <div>
+            <h2>{item.name}</h2>
             <p>{item.description}</p>
-            <ItemCount stock={item.stock} initial={1} onAdd={setQuantity} />
-            
+            <p>Precio: ${item.price}</p>
+            <ItemCount quantity={quantity} setQuantity={setQuantity} />
+            {!addedToCart ? (
+                <button onClick={handleAddToCart}>Agregar al carrito</button>
+            ) : (
+                <p>Producto agregado al carrito</p>
+            )}
         </div>
     );
 };
+
 
 export default ItemDetail;

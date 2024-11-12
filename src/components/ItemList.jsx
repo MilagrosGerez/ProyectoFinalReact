@@ -2,13 +2,16 @@ import Item from "./Item";
 const ItemList = ({ item = [] }) => {
 
      const { categoryId } = useParams();
-    return (
-        <div>
-            {item.length > 0 ? (
-                item.map((item) => <Item key={item.id} item={item} />)
-            ) : (
-                <p>No hay productos disponibles</p>
-            )}
+     return (
+        <div className="item-list">
+            {items.map(item => (
+                <div key={item.id} className="item-card">
+                    <p>{item.img}</p>
+                    <h3>{item.name}</h3>
+                    <p>{item.description}</p>
+                    <p>${item.price}</p>
+                </div>
+            ))}
         </div>
     );
 };
