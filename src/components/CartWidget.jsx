@@ -1,32 +1,24 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { CartContext } from '../contexts/CartContex';
 import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
-   const { cart, totalPrice, clearCart } = useContext(CartContext);
-
-   if (cart.length === 0) {
-       return (
-           <div>
-               <h2>Tu carrito está vacío</h2>
-               <Link to="/">Volver al catálogo</Link>
-           </div>
-       );
-   }
-
-   return (
-       <div>
-           <h2>Carrito de compras</h2>
-           {cart.map((item) => (
-               <div key={item.id}>
-                   <p>{item.title} - {item.stock} unidades</p>
-               </div>
-           ))}
-           <h3>Total: ${totalPrice()}</h3>
-           <button onClick={clearCart}>Vaciar Carrito</button>
-           <Link to="/checkout">Finalizar Compra</Link>
-       </div>
-   );
+    const { cart, totalPrice } = useContext(CartContext);
+ 
+    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0); // Sumar la cantidad de productos
+ 
+    if (cart.length === 0) {
+        return (
+            <Link to="/cart" className="cart-widget">
+                🛒 Tu carrito está vacío
+            </Link>
+        );
+    }
+    return (
+        <Link to="/cart" className="cart-widget">
+            🛒 {totalItems} productos - ${totalPrice()}
+        </Link>
+    );
 };
 
 export default CartWidget;

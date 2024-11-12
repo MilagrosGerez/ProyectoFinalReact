@@ -1,5 +1,7 @@
 import Item from "./Item";
 const ItemList = ({ item = [] }) => {
+
+     const { categoryId } = useParams();
     return (
         <div>
             {item.length > 0 ? (

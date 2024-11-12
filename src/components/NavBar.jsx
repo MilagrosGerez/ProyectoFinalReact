@@ -23,9 +23,9 @@ function NavBar (){
     <li>
       <NavLink to={"/category/Dulce"}><button>Aromas Dulces</button></NavLink>
     </li>
+    <CartWidget/>
    </ul>
     </nav>
-    <CartWidget/>
    </header>
     
     )
