@@ -20,16 +20,17 @@ const ItemDetail = ({ item }) => {
 
     return (
         <div>
-            <h2>{item.name}</h2>
+            <img src={item.img} alt={item.title} style={{ maxWidth: "300px" }} />
+            <h2>{item.title}</h2>
             <p>{item.description}</p>
             <p>Precio: ${item.price}</p>
             <ItemCount 
     initial={1} 
     stock={item.stock} 
-    onAdd={(quantity) => handleAddToCart(quantity)} 
+    onAdd={(setQuantity) } 
 />
             {!addedToCart ? (
-                <button onClick={handleAddToCart}>Agregar al carrito</button>
+                 <button onClick={handleAddToCart}>Agregar al carrito</button>
             ) : (
                 <p>Producto agregado al carrito</p>
             )}
